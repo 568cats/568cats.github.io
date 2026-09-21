@@ -1,0 +1,89 @@
+
+:root {
+    --paper: #f3efe6;
+    --ink: #171717;
+    --muted: #706d65;
+    --rule: #252525;
+    --accent: #a53b2f;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Libre Baskerville", Georgia, serif;
+    line-height: 1.65;
+}
+
+a { color: inherit; }
+
+.masthead,
+.page {
+    width: min(1180px, calc(100% - 4rem));
+    margin: 0 auto;
+}
+
+.masthead {
+    border-bottom: 4px double var(--rule);
+    padding: 1.15rem 0 0.8rem;
+    text-align: center;
+}
+
+.masthead li {
+    font-family: "DM Sans", sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.masthead ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0 0;
+    padding: 0;
+}
+
+.masthead li { list-style: none; font-size: 0.7rem; }
+.masthead li a { text-decoration: none; }
+.masthead li a:hover, .contact a:hover { color: var(--accent); }
+
+.page { padding: 1.2rem 0 2rem; }
+
+.header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    padding: 3.5rem 3vw 4rem;
+}
+
+.blurb { align-self: center; }
+
+h1, h2, h3 { font-weight: 700; line-height: 1.08; }
+h1 { font-size: clamp(1.2rem, 5vw, 5.2rem); letter-spacing: -0.08em; margin: 0; max-width: 8ch; }
+.dek { font-size: clamp(1rem, 1.7vw, 1.35rem); line-height: 1.5; margin: 2rem 0 1.3rem; max-width: 34rem; }
+
+.story { column-count: 2; column-gap: 2rem; margin-top: 1.5rem; }
+.story h2 { border-top: 3px solid var(--rule); font-size: 1.65rem; margin: 0 0 1.2rem; padding-top: 0.65rem; }
+.story h3 { font-size: 1rem; margin: 1.2rem 0 0.35rem; }
+.story p { font-size: 0.86rem; margin: 0; }
+.story h2, .story h3 { break-after: avoid; }
+.story h2 { column-span: all; }
+.contact { font-size: 0.86rem; margin-top: 1.8rem; }
+.contact a { color: var(--accent); font-weight: 700; }
+
+.profile-pic { margin: 0; }
+.profile-pic img { display: block; height: auto; width: 100%; }
+
+@media screen and (max-width: 700px) {
+    .masthead, .page { width: min(100% - 2rem, 560px); }
+    .masthead ul { gap: 1rem; }
+    .header { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 0 3rem; }
+    h1 { font-size: clamp(3rem, 16vw, 5rem); }
+    .story { column-count: 1; }
+    .profile-pic { grid-row: 1; }
+    .blurb { grid-row: 2; }
+}
